@@ -5,7 +5,11 @@
 
 <h2>@Model.Movie.Name</h2>
 
-<h3>Rented by:</h3>
+@{ 
+    var className = Model.Customers.Count > 2 ? "popular" : null;
+}
+
+<h3 class="@className">Rented by:</h3>
 <ul>
     @foreach (var customer in Model.Customers)
     {
