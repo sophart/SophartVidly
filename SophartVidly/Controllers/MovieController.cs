@@ -9,14 +9,15 @@ namespace SophartVidly.Controllers
 {
     public class MovieController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int? pageId, string sortBy)
         {
-            var movie = new Movie()
-            {
-                Name = "Die Hard!"
-            };
+            if (!pageId.HasValue)
+                pageId = 1;
 
-            return View(movie);
+            if (string.IsNullOrWhiteSpace(sortBy))
+                sortBy = "name";
+
+            return Content($"pageId = {pageId} & sortBy = {sortBy}");
         }
     }
 }
