@@ -19,5 +19,10 @@ namespace SophartVidly.Controllers
 
             return Content($"pageId = {pageId} & sortBy = {sortBy}");
         }
+
+        public ActionResult ByReleaseDate(int year, int month)
+        {
+            return Content($"Movies for year: {year} and month: {month}");
+        }
     }
 }

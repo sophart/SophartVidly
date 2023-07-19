@@ -13,6 +13,19 @@ namespace SophartVidly
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Routes orders are matter
+            // Be more specific to more generic
+
+
+            // Define custom routes
+            routes.MapRoute(
+                name: "MoviesByReleaseDate",
+                url: "movie/released/{year}/{month}",
+                defaults: new { controller = "Movie", action = "ByReleaseDate" },
+                constraints: new {year = @"\d{4}", month = @"\d{2}"}
+                );
+
+            // below is the default route
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
