@@ -20,6 +20,7 @@ namespace SophartVidly.Controllers
             return Content($"pageId = {pageId} & sortBy = {sortBy}");
         }
 
+        [Route("movie/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content($"Movies for year: {year} and month: {month}");
