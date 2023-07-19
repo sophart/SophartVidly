@@ -9,21 +9,19 @@ namespace SophartVidly.Controllers
 {
     public class MovieController : Controller
     {
-        public ActionResult Index(int? pageId, string sortBy)
+        public ActionResult Index()
         {
-            if (!pageId.HasValue)
-                pageId = 1;
+            var movie = new Movie()
+            {
+                Name = "Die Hard!"
+            };
 
-            if (string.IsNullOrWhiteSpace(sortBy))
-                sortBy = "name";
+            // ViewData["movies"] = movie;
 
-            return Content($"pageId = {pageId} & sortBy = {sortBy}");
+            // ViewBag.Movie = movie;
+
+            return View();
         }
 
-        [Route("movie/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
-        public ActionResult ByReleaseDate(int year, int month)
-        {
-            return Content($"Movies for year: {year} and month: {month}");
-        }
     }
 }
