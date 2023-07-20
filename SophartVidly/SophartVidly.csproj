@@ -192,6 +192,10 @@
     <Compile Include="Migrations\202307200331010_RenameDurationInMonthsInMembershipTypes.designer.cs">
       <DependentUpon>202307200331010_RenameDurationInMonthsInMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202307200334084_RenameSignUpFeeInMembershipTypes.cs" />
+    <Compile Include="Migrations\202307200334084_RenameSignUpFeeInMembershipTypes.designer.cs">
+      <DependentUpon>202307200334084_RenameSignUpFeeInMembershipTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -325,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202307200331010_RenameDurationInMonthsInMembershipTypes.resx">
       <DependentUpon>202307200331010_RenameDurationInMonthsInMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307200334084_RenameSignUpFeeInMembershipTypes.resx">
+      <DependentUpon>202307200334084_RenameSignUpFeeInMembershipTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
