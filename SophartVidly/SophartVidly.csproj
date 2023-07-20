@@ -200,6 +200,10 @@
     <Compile Include="Migrations\202307200335235_PopulateMembershipTypes.designer.cs">
       <DependentUpon>202307200335235_PopulateMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202307200341264_OverrideCustomersTableField.cs" />
+    <Compile Include="Migrations\202307200341264_OverrideCustomersTableField.designer.cs">
+      <DependentUpon>202307200341264_OverrideCustomersTableField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -339,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202307200335235_PopulateMembershipTypes.resx">
       <DependentUpon>202307200335235_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307200341264_OverrideCustomersTableField.resx">
+      <DependentUpon>202307200341264_OverrideCustomersTableField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
