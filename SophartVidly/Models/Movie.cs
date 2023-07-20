@@ -13,6 +13,8 @@ namespace SophartVidly.Models
 
         public DateTime ReleaseDate { get; set; }
 
+        public DateTime DateAdded { get; set; } = DateTime.Now;
+
         public Genre Genre { get; set; }
     }
 }

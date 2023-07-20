@@ -224,6 +224,10 @@
     <Compile Include="Migrations\202307200440336_AddReleaseDateToMovie.designer.cs">
       <DependentUpon>202307200440336_AddReleaseDateToMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202307200441369_AddDateAddedToMovie.cs" />
+    <Compile Include="Migrations\202307200441369_AddDateAddedToMovie.designer.cs">
+      <DependentUpon>202307200441369_AddDateAddedToMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -382,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202307200440336_AddReleaseDateToMovie.resx">
       <DependentUpon>202307200440336_AddReleaseDateToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307200441369_AddDateAddedToMovie.resx">
+      <DependentUpon>202307200441369_AddDateAddedToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
