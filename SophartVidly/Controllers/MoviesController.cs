@@ -1,18 +1,13 @@
 ﻿using SophartVidly.Models;
-using SophartVidly.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SophartVidly.Controllers
 {
     public class MoviesController : Controller
     {
-
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public MoviesController()
         {
@@ -35,7 +30,6 @@ namespace SophartVidly.Controllers
 
         protected override void Dispose(bool disposing)
         {
-
             _context.Dispose();
         }
     }

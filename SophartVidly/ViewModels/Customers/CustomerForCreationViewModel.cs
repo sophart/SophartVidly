@@ -1,27 +1,27 @@
-﻿using System;
+﻿using SophartVidly.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace SophartVidly.Models
+namespace SophartVidly.ViewModels.Customers
 {
-    public class Customer
+    public class CustomerForCreationViewModel
     {
-        public int Id { get; set; }
-
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
 
+        [Display(Name = "Date of Birth")]
         public DateTime? BirthDate { get; set; }
 
+        [Display(Name = "Subscribe to Newsletter?")]
         public bool IsSubscribedToNewsletter { get; set; }
 
-        [ForeignKey(nameof(MembershipType))]
+        [Display(Name = "Membership Type")]
         public int MembershipTypeId { get; set; }
 
-        public MembershipType MembershipType { get; set; }
+        public IEnumerable<MembershipType> MembershipTypes { get; set; } = new List<MembershipType>();
     }
 }
