@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SophartVidly.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customers</h2>
+
+@if (!Model.Any())
+{
+    <h3>No Customers</h3>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Customers</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td> @Html.ActionLink(customer.Name, "Detail", new { Id = customer.Id })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

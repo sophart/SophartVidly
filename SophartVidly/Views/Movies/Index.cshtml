@@ -1,0 +1,34 @@
+﻿@model IEnumerable<SophartVidly.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Movies</h2>
+
+@if (!Model.Any())
+{
+    <p>No Movies</p>
+}
+else
+{
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Movies</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(@movie.Name, "Detail", new { movie.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
