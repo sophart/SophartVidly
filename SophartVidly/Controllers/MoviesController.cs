@@ -2,6 +2,7 @@
 using SophartVidly.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,34 +12,31 @@ namespace SophartVidly.Controllers
     public class MoviesController : Controller
     {
 
-        private readonly List<Movie> _movies;
+        private ApplicationDbContext _context;
 
         public MoviesController()
         {
-            _movies = GetMovies();
-        }
-
-        private List<Movie> GetMovies()
-        {
-            var movies = new List<Movie>() { 
-                new Movie() { Id = 1,Name = "Die Hard"},
-                new Movie(){Id = 2, Name = "Avenger"}
-            };
-
-            return movies;
+            _context = new ApplicationDbContext();
         }
 
         public ActionResult Index()
         {
-           return View(_movies);
+            var movies = _context.Movies.Include(x => x.Genre).ToList();
+
+            return View(movies);
         }
 
         public ActionResult Detail(int id)
         {
-            var movie = _movies.SingleOrDefault(m => m.Id == id);
+            var movie = _context.Movies.Include(x => x.Genre).SingleOrDefault(m => m.Id == id);
 
             return View(movie);
         }
 
+        protected override void Dispose(bool disposing)
+        {
+
+            _context.Dispose();
+        }
     }
 }
