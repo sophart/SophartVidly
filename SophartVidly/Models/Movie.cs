@@ -15,6 +15,8 @@ namespace SophartVidly.Models
 
         public DateTime DateAdded { get; set; } = DateTime.Now;
 
+        public int NumberInStock { get; set; }
+
         public Genre Genre { get; set; }
     }
 }
