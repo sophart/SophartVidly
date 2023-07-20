@@ -9,39 +9,32 @@ namespace SophartVidly.Controllers
 {
     public class CustomersController : Controller
     {
-        private List<Customer> _customers;
+        private ApplicationDbContext _context;
 
 
         public CustomersController()
         {
-            _customers = GetCustomers();
+            _context = new ApplicationDbContext();
         }
 
         // GET: Customers
         public ActionResult Index()
         {
-            return View(_customers);
+            var customers = _context.Customers.ToList();
+
+            return View(customers);
         }
 
         public ActionResult Detail(int id)
         {
-            var customer = _customers.SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.SingleOrDefault(x => x.Id == id);
 
             return View(customer);
         }
 
-        private List<Customer> GetCustomers()
+        protected override void Dispose(bool disposing)
         {
-            var customers = new List<Customer>()
-            {
-                new Customer{Id =1, Name = "Sophart"},
-                new Customer{Id =2, Name = "Lakkhena"},
-                new Customer{Id =3, Name = "Panhakvoan"},
-            };
-
-            return customers;
+            _context.Dispose();
         }
-
-
     }
 }
