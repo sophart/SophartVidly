@@ -220,6 +220,10 @@
     <Compile Include="Migrations\202307200420209_AddGenreTable.designer.cs">
       <DependentUpon>202307200420209_AddGenreTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202307200440336_AddReleaseDateToMovie.cs" />
+    <Compile Include="Migrations\202307200440336_AddReleaseDateToMovie.designer.cs">
+      <DependentUpon>202307200440336_AddReleaseDateToMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -375,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202307200420209_AddGenreTable.resx">
       <DependentUpon>202307200420209_AddGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307200440336_AddReleaseDateToMovie.resx">
+      <DependentUpon>202307200440336_AddReleaseDateToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
