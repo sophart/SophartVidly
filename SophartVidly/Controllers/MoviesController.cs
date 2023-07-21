@@ -40,13 +40,45 @@ namespace SophartVidly.Controllers
                 Genres = genres
             };
 
-            return View("MovieForm" ,movie);
+            return View("MovieForm", movie);
+        }
+
+        public ActionResult Update(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            var genres = _context.Genres.ToList();
+
+            var movieForForm = new MovieFormViewModel()
+            {
+                Id = movie.Id,
+                GenreId = movie.GenreId,
+                Name = movie.Name,
+                Genres = genres,
+                NumberInStock = movie.NumberInStock,
+                ReleaseDate = movie.ReleaseDate
+            };
+
+
+            return View("MovieForm", movieForForm);
         }
 
         [HttpPost]
-        public ActionResult Create(Movie movie)
+        public ActionResult Save(Movie movie)
         {
-            _context.Movies.Add(movie);
+            if (movie.Id == 0)
+            {
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+
+                movieInDb.Name = movie.Name;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.NumberInStock = movie.NumberInStock;
+            }
 
             _context.SaveChanges();
 
