@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -16,6 +17,9 @@ namespace SophartVidly.Models
         public DateTime DateAdded { get; set; } = DateTime.Now;
 
         public int NumberInStock { get; set; }
+
+        [ForeignKey(nameof(Genre))]
+        public int GenreId { get; set; }
 
         public Genre Genre { get; set; }
     }

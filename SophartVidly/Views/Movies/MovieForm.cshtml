@@ -1,0 +1,31 @@
+﻿@model SophartVidly.ViewModels.Movies.MovieFormViewModel
+@{
+    ViewBag.Title = "MovieForm";
+}
+
+<h2>@(Model.Id == 0 ? "New Movie" : $"Edit {Model.Name}")</h2>
+
+@using (Html.BeginForm("create", "Movies", FormMethod.Post))
+{
+    <div class="form-group mb-3">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>   
+    
+    <div class="form-group mb-3">
+        @Html.LabelFor(m => m.NumberInStock)
+        @Html.TextBoxFor(m => m.NumberInStock, new { @class = "form-control" })
+    </div> 
+
+    <div class="form-group mb-3">
+        @Html.LabelFor(m => m.ReleaseDate)
+        @Html.TextBoxFor(m => m.ReleaseDate, "{0: dd MMM yyy}" , new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mb-3">
+        @Html.LabelFor(m => m.GenreId)
+        @Html.DropDownListFor(m => m.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select a genre" , new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}

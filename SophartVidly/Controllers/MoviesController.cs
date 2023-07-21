@@ -2,6 +2,8 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using Antlr.Runtime.Misc;
+using SophartVidly.ViewModels.Movies;
 
 namespace SophartVidly.Controllers
 {
@@ -26,6 +28,29 @@ namespace SophartVidly.Controllers
             var movie = _context.Movies.Include(x => x.Genre).SingleOrDefault(m => m.Id == id);
 
             return View(movie);
+        }
+
+
+        public ActionResult Create()
+        {
+            var genres = _context.Genres.ToList();
+
+            var movie = new MovieFormViewModel()
+            {
+                Genres = genres
+            };
+
+            return View("MovieForm" ,movie);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Movie movie)
+        {
+            _context.Movies.Add(movie);
+
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
         }
 
         protected override void Dispose(bool disposing)
